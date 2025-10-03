@@ -1,0 +1,14 @@
+{
+  "name": "times-table-explorer",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npx esbuild main.ts --bundle --format=esm --target=es2019 --minify --sourcemap --outfile=dist/main.js",
+    "copy:assets": "mkdir -p dist && cp index.html style.css manifest.webmanifest sw.js dist/ && mkdir -p dist/audio dist/icons && cp audio/ambient-loop.mp3 dist/audio/ && cp -R icons/. dist/icons/",
+    "release": "npm run clean && npm run build && npm run copy:assets"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.10"
+  }
+}
