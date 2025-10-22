@@ -2,6 +2,8 @@
 
 Times Table Explorer is an interactive multiplication-table coach that combines a hop-by-hop visual grid, spoken narration, and ambient background music. Learners pick a number, watch a translucent orb glide across multiples, and hear each product called out—perfect for memorising tables up to 12 × 150.
 
+You can see the demo at: https://rlpatrao.github.io/mathexplorer/
+
 ## Features
 
 - **Dynamic grid:** 1–150 board arranged into columns of ten with animated hop indicator.
