@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Times Table Explorer</title>
+  <meta name="theme-color" content="#0d1b2a" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-mode="times">
+  <div class="layout">
+    <aside class="sidebar" aria-label="learning modes">
+      <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-expanded="true" aria-controls="sidebar-menu">
+        ☰
+      </button>
+      <nav id="sidebar-menu" class="sidebar-menu">
+        <p class="sidebar-heading">Explore</p>
+        <button class="sidebar-item" type="button" data-mode-target="times">Times Table Explorer</button>
+        <button class="sidebar-item" type="button" data-mode-target="addition">Addition Trainer</button>
+        <button class="sidebar-item" type="button" data-mode-target="subtraction">Subtraction Trainer</button>
+      </nav>
+    </aside>
+
+    <main class="app">
+      <h1>Times Table Explorer</h1>
+      <section class="controls" aria-label="activity controls">
+      <label class="control table-only" for="table-select">
+        Times table
+        <select id="table-select" name="table">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10" selected>10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+        </select>
+      </label>
+      <label class="control" for="speed-slider">
+        <span class="control-heading">Speed <span id="speed-label" class="control-meta">1.0s</span></span>
+        <input type="range" id="speed-slider" min="400" max="2000" step="100" value="1000" />
+      </label>
+      <label class="control" for="volume-slider">
+        <span class="control-heading">Volume <span id="volume-label" class="control-meta">60%</span></span>
+        <input type="range" id="volume-slider" min="0" max="100" step="5" value="60" />
+      </label>
+      <div class="arithmetic-controls arithmetic-only">
+        <label class="visually-hidden" for="answer-input">Answer</label>
+        <input id="answer-input" class="answer-input" type="number" inputmode="numeric" autocomplete="off" placeholder="Your answer" />
+        <button id="check-button" type="button">Check</button>
+        <button id="next-question" type="button">Next</button>
+      </div>
+      <button class="table-only" id="start-button" type="button">Start</button>
+      <button class="table-only" id="stop-button" type="button" disabled>Stop</button>
+      <span id="product-display" class="product-display" aria-live="polite"></span>
+    </section>
+
+    <section class="board-wrapper" aria-live="polite">
+      <div id="board" class="board" role="list" aria-label="Multiplication table grid">
+        <svg id="path-overlay" class="path-overlay" aria-hidden="true" preserveAspectRatio="none"></svg>
+        <div id="ball" class="ball" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <p class="hint">Select a number to watch its multiples up to 150. Adjust the hop speed to suit your pace.</p>
+    </main>
+  </div>
+
+  <audio
+    id="background-audio"
+    preload="auto"
+    loop
+    playsinline
+    src="audio/ambient-loop.mp3"
+    type="audio/mpeg"
+  ></audio>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
